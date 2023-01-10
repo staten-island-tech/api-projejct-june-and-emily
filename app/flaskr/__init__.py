@@ -1,6 +1,7 @@
+from flask import Flask, render_template, request
+import requests
 import os
-
-from flask import Flask
+import json
 
 
 def create_app(test_config=None):
@@ -24,9 +25,14 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return 'help me pls '
+    @app.route('/', methods=('GET', 'POST'))
+    def getPost():
+        if request.method == 'POST':
+            title = request.form['title']
+            data = requests.get(f"http://www.themealdb.com/api/json/v1/1/list.php?c=listBeef{title}").json()
+            print(request.headers)
+            return render_template('test.html',data=data)
+        else:
+            return render_template('home.html')
 
     return app
