@@ -10,11 +10,12 @@
       {% for meal in data.meals %}
       {% if meal in data['meals']%}
       <div class="card">
+        <div class="container">
         <h3>{{meal.strMeal}}</h3>
         <img src="{{meal.strMealThumb}}">
-
-        {% endif %}
+        </div>
       </div>
+        {% endif %}
       {% endfor %}
   </div>
   </body>

@@ -34,5 +34,4 @@ def create_app(test_config=None):
             return render_template('test.html',data=data)
         else:
             return render_template('home.html')
-
     return app
