@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css">
+    <title>theMealJE</title>
+  </head>
+  <body>
+    <h1>Welcome to June and Emily's awesome awesome menu.</h1>
+    <img src="../static/food.jpg">
+    <h2>Please type in a meal category that you would like to know how to cook.</h2>
+    <h4>example: Beef, Seafood, Chicken, Dessert, etc.</h4>
+    <form method="post">
+      <label for="title">type the category you would like to search</label>
+      <input
+        name="title"
+        id="title"
+        value="{{ request.form['title'] }}"
+        required
+      />
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+</html>
