@@ -28,10 +28,13 @@ def create_app(test_config=None):
     @app.route('/', methods=('GET', 'POST'))
     def getPost():
         if request.method == 'POST':
-            title = request.form['title']
-            data = requests.get(f"https://www.themealdb.com/api/json/v1/1/filter.php?c={title}").json()
-            print(data)
-            return render_template('test.html',data=data)
+            try:
+                title = request.form['title']
+                data = requests.get(f"https://www.themealdb.com/api/json/v1/1/filter.php?c={title}").json()
+                print(data)
+                return render_template('test.html',data=data)
+            except:
+                return render_template('error.html')
         else:
             return render_template('home.html')
     return app
