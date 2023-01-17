@@ -31,7 +31,10 @@ def create_app(test_config=None):
             try:
                 title = request.form['title']
                 data = requests.get(f"https://www.themealdb.com/api/json/v1/1/filter.php?c={title}").json()
+<<<<<<< HEAD
                 print(data)
+=======
+>>>>>>> main
                 return render_template('test.html',data=data)
             except:
                 return render_template('error.html')
