@@ -14,8 +14,11 @@ __pycache__/
 *$py.class
 
 # C extensions
+.cfg
 *.so
-
+app\pyvenv.cfg
+pyvenv.cfg
+app/pyvenv.cfg
 # Distribution / packaging
 .Python
 build/
